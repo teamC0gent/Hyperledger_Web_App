@@ -1,0 +1,366 @@
+ /*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Write your model definitions here
+ */
+
+namespace org.supplychain.network
+
+/**
+ * # Assets
+ */
+
+asset Product identified by pid {  
+  o String pid
+  o String name
+  o Integer quantity 
+  o Double price
+  o String traderId
+  o String firstName  
+  o String lastName
+  o Integer phoneNumber
+  o ROLE role
+  o REQUESTSTATUS status
+}
+
+/**
+* # participants
+*/
+
+// abstract participant by which all other participant resources are extended.
+
+abstract participant Trader identified by traderId {
+  o String traderId
+  o String firstName  
+  o String lastName
+  o String gender
+  o String dob 
+  o String email
+  o Integer phoneNumber 
+  o String city 
+  o String country
+  o String street 
+  o Integer postalCode 
+  o String password
+  o ROLE role
+}
+
+participant Farmer extends Trader {
+  	
+}
+participant Distributor extends Trader {
+
+}
+
+participant Retailer extends  Trader  {
+
+}
+
+// enumeration to define different roles of the participant in different stages. 
+
+  enum ROLE {
+   o FARMER
+   o DISTRIBUTOR
+   o RETAILER
+ }
+
+ enum STATE{
+   o PRODUCT_ADDED
+   o PRODUCT_UPDATED
+   o AVAILABLE_FOR_SALE
+  }
+
+// enumeration to define status of request, request approval and the acknowledgement of the product 
+
+  enum REQUESTSTATUS{
+   o NA
+   o DISTRIBUTOR_REQUEST_PENDING
+   o DISTRIBUTOR_REQUEST_APPROVED
+   o DISTRIBUTOR_REQUEST_REJECTED
+   o DISTRIBUTOR_NEED
+   o RETAILER_REQUEST_PENDING
+   o RETAILER_REQUEST_APPROVED
+   o RETAILER_REQUEST_REJECTED
+   o RETAILER_NEED
+  }
+
+/**
+* # Registration Transactions
+*/
+
+transaction addFarmer {
+  o String firstName  
+  o String lastName
+  o String gender
+  o String dob 
+  o String email
+  o Integer phoneNumber
+  o String street
+  o String city 
+  o String country 
+  o Integer postalCode
+  o String password
+  o ROLE role
+}
+
+transaction addDistributor {
+  o String firstName  
+  o String lastName
+  o String gender
+  o String dob 
+  o String email 
+  o Integer phoneNumber
+  o String street
+  o String city 
+  o String country 
+  o Integer postalCode
+  o String password
+  o ROLE role
+
+}
+
+transaction addRetailer {
+  o String firstName  
+  o String lastName
+  o String gender
+  o String dob 
+  o String email 
+  o Integer phoneNumber
+  o String street
+  o String city 
+  o String country 
+  o Integer postalCode
+  o String password
+  o ROLE role
+}
+
+
+// transaction structure for the farmer.
+
+transaction addProduct {
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o String traderId
+  o String firstName  
+  o String lastName
+  o Integer phoneNumber
+  o REQUESTSTATUS status
+  --> Farmer farmer
+}
+
+transaction updateProduct {
+  o String pid
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  --> Farmer farmer
+  --> Distributor distributor
+}
+
+transaction deleteProduct {
+  o String pid
+  o ROLE role
+  --> Farmer farmer
+  --> Distributor distributor
+  --> Retailer retailer
+}
+
+transaction acceptOrderByFarmer {
+  o String pid
+  o String name
+  o Integer quantity
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  o String traderId
+  o String firstName
+  o String lastName
+  o Integer phoneNumber
+  --> Distributor distributor
+  --> Retailer retailer 
+}
+
+transaction rejectOrderByFarmer{
+  o String pid
+  o String name
+  o Integer quantity
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  o String firstName
+  o String lastName
+  o Integer phoneNumber
+  --> Farmer farmer 
+  
+} 
+
+// transaction structure for request by the distributor.
+
+transaction needOfDistributor {
+  o String name
+  o Integer quantity 
+  o Double price
+  o String traderId
+  o String firstName
+  o String lastName
+  o Integer phoneNumber
+  o ROLE role
+  o REQUESTSTATUS status
+  --> Distributor distributor
+}
+
+transaction updateNeedDistributor {
+  o String pid
+  o String name
+  o Integer quantity 
+  o Double price
+  --> Distributor distributor
+}
+
+transaction orderByDistributor{
+  o String pid
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  o String traderId
+  o String firstName  
+  o String lastName 
+  o Integer phoneNumber
+  --> Distributor distributor
+}
+
+transaction acceptOrderByDistributor {
+  o String pid
+  o String name
+  o Integer quantity
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  o String traderId
+  o String firstName
+  o String lastName
+  o Integer phoneNumber
+  --> Retailer retailer
+}
+
+transaction rejectOrderByDistributor{
+  o String pid
+  o String name
+  o Integer quantity
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  o String firstName
+  o String lastName
+  o Integer phoneNumber
+  --> Distributor distributor 
+} 
+
+// transaction structure for request by the Retailer.
+
+transaction needOfRetailer {
+  o String name
+  o Integer quantity 
+  o Double price
+  o String traderId
+  o String firstName
+  o String lastName
+  o Integer phoneNumber
+  o ROLE role
+  o REQUESTSTATUS status
+  --> Retailer retailer
+}
+
+transaction updateNeedRetailer {
+  o String pid
+  o String name
+  o Integer quantity 
+  o Double price
+  --> Retailer retailer
+}
+
+transaction orderByRetailer {
+  o String pid
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+  o String traderId
+  o String firstName  
+  o String lastName
+  o Integer phoneNumber
+  --> Retailer retailer
+}
+
+transaction loginVerification {
+  o String email
+  o String password
+}
+// Events
+
+event loginNotification {
+  o String email
+}
+
+event addProductNotification {
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o String traderId
+  o String firstName  
+  o String lastName
+  o Integer phoneNumber
+  o REQUESTSTATUS status
+}
+
+event updateProductNotification {
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o REQUESTSTATUS status
+}
+
+event acceptOrderByFarmerNotification {
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o String traderId
+  o String firstName  
+  o String lastName
+  o Integer phoneNumber
+  o REQUESTSTATUS status
+}
+
+event acceptOrderByDistributorNotification {
+  o String name
+  o Integer quantity 
+  o Double price
+  o ROLE role
+  o String traderId
+  o String firstName  
+  o String lastName
+  o Integer phoneNumber
+  o REQUESTSTATUS status
+}

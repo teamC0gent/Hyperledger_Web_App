@@ -1,0 +1,6 @@
+appname.controller('appCtrl',
+    function() {
+
+        
+        
+    });

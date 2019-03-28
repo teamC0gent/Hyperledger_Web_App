@@ -1,0 +1,20 @@
+<div class="col-md-12">
+    <h3>Demands</h3>
+    <div class="table-responsive" style="height: 400px">
+        <table class="table" ng-table ng-init="getAllDemands()">
+            <tr ng-repeat="demand in demands">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td data-title="'Product Name'">{{demand.name}}</td>
+                <td data-title="'Quantity (in Kg)'">{{demand.quantity}}</td>
+                <td data-title="'Owner Name'">{{demand.firstName + ' ' + demand.lastName}}</td>
+                <td data-title="'Role'">{{demand.role}}</td>
+                <td data-title="'Contact'">{{demand.phoneNumber}}</td>
+                <!--<td>
+                    <a href="" ng-click="addModal()"><i class="fa fa-pencil"></i></a>
+                    <a href="" style="margin-left:5px;"><i class="fa fa-trash"></i></a>
+                </td>
+            -->
+            </tr>
+        </table>
+    </div>
+</div>

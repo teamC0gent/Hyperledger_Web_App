@@ -1,0 +1,27 @@
+<div class="col-md-12">
+    <h3>Transactions</h3>
+    <div class="table-responsive" style="height: 600px; width: 1400px">
+        <table class="table" ng-table ng-init="getAllTransactions()">
+            <tr ng-repeat="transaction in transactions">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td data-title="'Transaction Id'">{{transaction.transactionId}}</td>
+                <td data-title="'Timestamp'">{{transaction.transactionTimestamp}}</td>
+                <td data-title="'Type'">{{transaction.transactionType}}</td>
+                <td data-title="'Events'">
+                    <span ng-show = "transaction.eventsEmitted.length">Product Name: {{transaction.eventsEmitted[0].name }}<br/>
+                    Quantity:  {{transaction.eventsEmitted[0].quantity }} <br/>
+                    Price: {{transaction.eventsEmitted[0].price }} <br/>
+                    Owner Name: {{transaction.eventsEmitted[0].firstName + ' ' + transaction.eventsEmitted[0].lastName}} <br/>
+                    Role: {{transaction.eventsEmitted[0].role}}<br/>
+                    Contact: {{transaction.eventsEmitted[0].firstName + ' ' + transaction.eventsEmitted[0].phoneNumber}}
+                </span>
+                </td>
+                <!--<td>
+                    <a href="" ng-click="addModal()"><i class="fa fa-pencil"></i></a>
+                    <a href="" style="margin-left:5px;"><i class="fa fa-trash"></i></a>
+                </td>
+            -->
+            </tr>
+        </table>
+    </div>
+</div>

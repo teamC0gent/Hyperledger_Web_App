@@ -1,0 +1,396 @@
+@charset "utf-8";
+
+
+/* ##################### COMMON-ELEMENTS ##################### */
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  color: #555459;
+  font-weight: 400;
+}
+
+a:focus {
+  outline: none !important;
+}
+.black-text {
+  color: #333;
+}
+.block-text {
+  display: block;
+}
+.f-10 {
+  font-size: 10px;
+}
+
+.f-12 {
+  font-size: 12px;
+}
+
+.f-13 {
+  font-size: 13px;
+}
+
+.f-16 {
+  font-size: 16px;
+}
+
+.m-t-5 {
+  margin-top: 5px;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.m-t-15 {
+  margin-top: 15px;
+}
+.m-t-20 {
+  margin-top: 20px;
+}
+.m-t-30 {
+  margin-top: 30px;
+}
+.m-t-50 {
+  margin-top: 50px;
+}
+
+.m-b-0 {
+  margin-bottom: 0px;
+}
+
+.m-b-5 {
+  margin-bottom: 5px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.m-b-15 {
+  margin-bottom: 15px;
+}
+
+.m-b-50 {
+  margin-bottom: 50px;
+}
+
+.m-l-20 {
+  margin-left: 20px;
+}
+
+.p-15 {
+  padding: 15px;
+}
+
+.p-t-20 {
+  padding-top: 20px;
+}
+
+.p-t-10 {
+  padding-top: 10px;
+}
+.p-t-15 {
+  padding-top: 15px;
+}
+
+.p-r-20 {
+  padding-right: 20px;
+}
+
+.p-r-15 {
+  padding-right: 15px;
+}
+
+.p-r-0 {
+  padding-right: 0px;
+}
+
+.p-l-0 {
+  padding-left: 0px;
+}
+
+.p-l-10 {
+  padding-left: 10px;
+}
+
+.p-l-15 {
+  padding-left: 15px;
+}
+
+.p-b-10 {
+  padding-bottom: 10px;
+}
+
+.p-b-15 {
+  padding-bottom: 15px;
+}
+
+.p-b-20 {
+  padding-bottom: 20px;
+}
+
+.b-r-0 {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.b-l-0 {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.border-top {
+  border-top: 1px solid #eee;
+}
+
+.height-42 {
+  height: 42px;
+}
+
+.height-60 {
+  height: 60px;
+}
+
+.form-control:focus,
+.form-control:hover {
+  border-color: #153553;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.button-shadow {
+  box-shadow: 0 5px #1e4a70;
+}
+
+.button-shadow:active {
+  background-color: #296294;
+  box-shadow: 0 2px #194061;
+  transform: translateY(4px);
+}
+
+.btn-line {
+  background: transparent;
+  border-radius: 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+.btn-line:hover {
+  border-bottom: 1px solid #153553;
+}
+
+.popover-content {
+  padding: 0px;
+}
+
+.list-group-item {
+  border: 0px;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.scroll-div {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.normal-label label {
+  font-weight: normal;
+}
+
+
+/*########## text ###########*/
+
+.danger-text {
+  color: red;
+}
+
+.success-text {
+  color: green;
+}
+.warning-text {
+  color: #d58512;
+}
+.strikethrough-text {
+  text-decoration: line-through;
+}
+.bold-text {
+  font-weight: bold;
+}
+.gray-text {
+  color: #999;
+
+}
+
+.gray-text:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.page-heading span{
+  font-size: 24px;
+  display: inline-block;
+  /*margin-bottom: 20px;*/
+}
+/* ##################### LOGIN  ##################### */
+
+.login {
+  background-color: #fff;
+  border-radius: .25rem;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+  padding: 2rem 2rem 1rem;
+  margin: 0 auto 2rem;
+  position: relative;
+  border: 1px solid #E8E8E8;
+  margin-top: 20%;
+}
+
+/*############# header ###########*/
+#header {
+  font-size: 40px;
+  vertical-align: middle;
+  background-color: #006da6;
+  color: #fff;
+}
+
+/* ################ navbar #################*/
+
+.navbar {
+  padding: 5px 10px;
+}
+
+#sidebar {
+  min-width: 200px;
+  max-width: 200px;
+  margin-top: 70px;
+  background: #006da6;
+  color: #fff;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+#sidebar.active {
+  margin-left: -200px;
+  color: #006da6;
+  background: #fff;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  color: #fff;
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+  color: #006da6;
+  background: #fff;
+}
+
+#sidebar ul li.active a{
+  color: #006da6;
+  background: #fff;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+#dashboard-content {
+  margin-top: 60px;
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+#sidebarCollapse {
+  background-color: #006da6;
+  color: #fff;
+  border: none;
+}
+
+#sidebarCollapse:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+      margin-left: -200px;
+  }
+  #sidebar.active {
+      margin-left: 0;
+  }
+  #sidebarCollapse span {
+      display: none;
+  }
+}
+
+
+/*############## table-layout:  ################*/
+
+.list-table {
+  margin-top: 15px;
+}
+
+td span i {
+  visibility: hidden;
+  border: 1px solid #ccc;
+  padding: 3px;
+}
+
+td:hover span i {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.ng-table th { text-align: left; }
+
+label,
+div.field {
+  display: block;
+  padding-bottom: 5px;
+}
+
+div.field .input:not(.hidden) {
+  display: block;
+}
+
+.modal-body .pipelineStages ul li .stageContent .stageArrow {
+
+  top: -15px;
+}
+
+@media (min-width: 768px) {
+
+  .modal-sm {
+    width: 370px;
+  }
+}
+
+/* To disable anchor*/
+a.disabled {
+  color: #AAAAAA;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+}

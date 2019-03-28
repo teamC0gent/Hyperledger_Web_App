@@ -1,0 +1,23 @@
+/* Additional css*/
+.flagged{
+  background-color: #fff;
+  border:2px solid #FE9C31;
+   min-height:50px ;
+   margin: 1%; 
+   padding: 1% 
+}
+.unflagged{
+	 background-color:#fff ;
+   min-height:50px ;
+   margin: 1%; 
+   padding: 1% 
+}
+.as-sortable-item {
+    border: solid 1px darkgrey !important;
+    background-color: #fff !important;
+    padding: 10px !important;
+    border-radius: 3px;
+    border-color: #8080804f !important;
+    background: #eee !important;
+    margin: 8px 0px !important;
+}

@@ -1,0 +1,122 @@
+<div class="container">
+  <nav class="navbar navbar-default navbar-fixed-top" id="header">
+    <div class="navbar-header m-l-20">
+      <img src="../../assets/images/app-logo.png" width="110px" height="50px" />
+    </div>
+    <div class="navbar-header m-l-20">
+      Agri Supply Chain
+    </div>
+  </nav>
+  <div class="col-sm-8 col-sm-offset-2" id="dashboard-content">
+    <h2 class="text-center bold-text">Registration</h2>
+    <form name="registrationForm" ng-submit="submitUserForm()">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" id="firstName" ng-model="userData.firstName" placeholder="Enter First Name" name="firstName" required>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" id="lastName" ng-model="userData.lastName" placeholder="Enter Last Name" name="lastName" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="dob">DOB:</label>
+            <input type="text" class="form-control" id="dob" ng-model="userData.dob" placeholder="DD-MM-YYYY" name="dob">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select class="form-control" id="gender" ng-model="userData.gender" name="gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" ng-model="userData.password" placeholder="Atleast 8 characters" ng-keyup="checkPwd()" name="password" required>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="confirmpwd">Confirm Password:</label>
+            <input type="password" class="form-control" id="confirmpwd" ng-model="userData.confirmPassword" placeholder="Same as password" ng-keyup="checkPwd()" name="confirmpwd" required>
+            <span id="message"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" ng-model="userData.email" placeholder="Enter email" name="email" required>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="number" class="form-control" id="phoneNumber" ng-model="userData.phoneNumber" placeholder="Phone Number" name="phoneNumber" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="control-label" for="street">Street:</label>
+            <input type="text" class="form-control" id="street" ng-model="userData.street" placeholder="Enter State" name="street" required>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="control-label" for="city">City:</label>
+            <input type="text" class="form-control" id="city" ng-model="userData.city" placeholder="Enter City" name="city" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="control-label" for="country">Country:</label>
+            <input type="text" class="form-control" id="country" ng-model="userData.country" placeholder="Enter Country" name="country" required>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="control-label" for="postalCode">Postal Code:</label>
+            <input type="text" class="form-control" id="postalCode" ng-model="userData.postalCode" placeholder="Enter Postal Code" name="postalCode" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-sm-2" for="role">Role:</label>
+          <div class="col-sm-8">
+            <select class="form-control" id="role" ng-model="userData.role" name="role" required>
+              <option value="FARMER">Farmer</option>
+              <option value="RETAILER">Retailer</option>
+              <option value="DISTRIBUTOR">Distributor</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+          <button type="submit" class="btn btn-primary btn-block" ng-disabled="processing">{{processing?'Processing':'Submit'}}</button>
+          <a href="#login"  class="pull-right f-12 gray-text m-t-5" >Already Registered? Login Here</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

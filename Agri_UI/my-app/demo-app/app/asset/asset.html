@@ -1,0 +1,24 @@
+<div class="col-md-12">
+    <h3>My Assets</h3>
+    <div class="table-responsive" style="height: 400px">
+        <table class="table" ng-table ng-init="getAllAssets()">
+            <tr ng-repeat="asset in assets">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td data-title="'Product Id'">{{asset.pid}}</td>
+                <td data-title="'Product Name'">{{asset.name}}</td>
+                <td data-title="'Quantity (in Kg)'">{{asset.quantity}}</td>
+                <td data-title="'Price (in Rs.)'">{{asset.price}}</td>
+                <td>
+                    <a href="" ng-click="updateAsset($index)" ng-show="userInfo.role != 'RETAILER'"><i class="fa fa-pencil"></i></a>
+                    <a href="" style="margin-left:5px;" ng-click="deleteAsset(asset.pid)" a-disabled="deleteId == asset.pid">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div ng-show="userInfo.role == 'FARMER'" class="col-sm-2 col-sm-offset-5">
+        <button class="btn btn-primary" type="button" ng-click="addAsset()">Add Product</button>
+    </div>
+</div>

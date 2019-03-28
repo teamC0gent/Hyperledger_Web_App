@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <h3>Needs</h3>
+    <div class="table-responsive" style="height: 400px">
+        <table class="table" ng-table ng-init="getAllNeeds()">
+            <tr ng-repeat="need in needs">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td data-title="'Product Name'">{{need.name}}</td>
+                <td data-title="'Quantity (in Kg)'">{{need.quantity}}</td>
+                <td>
+                    <a href="" ng-click="updateNeed($index)"><i class="fa fa-pencil"></i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div class="col-sm-2 col-sm-offset-5">
+        <button class="btn btn-primary" type="button" ng-click="addNeed()">Add</button>
+    </div>
+</div>

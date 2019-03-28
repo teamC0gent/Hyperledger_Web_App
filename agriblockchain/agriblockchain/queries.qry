@@ -1,0 +1,132 @@
+/** Querys for farmer
+*/
+
+query selectFarmerAssets {
+  description: "Select all products owned by farmer"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE (role == 'FARMER' AND traderId == _$traderId AND (status == 'NA' OR status == 'DISTRIBUTOR_REQUEST_PENDING' OR status == 'RETAILER_REQUEST_PENDING'  OR status == 'RETAILER_REQUEST_REJECTED' OR status == 'DISTRIBUTOR_REQUEST_REJECTED' ))
+}
+
+query selectFarmerDetails {
+  description: "Select Farmer details"
+  statement:
+      SELECT org.supplychain.network.Farmer 
+  			WHERE (email == _$email)
+}
+
+query selectDistributorDetails {
+  description: "Select Distributor details"
+  statement:
+      SELECT org.supplychain.network.Distributor 
+  			WHERE (email == _$email)
+}
+
+query selectRetailerDetails {
+  description: "Select Retailer details"
+  statement:
+      SELECT org.supplychain.network.Retailer 
+  			WHERE (email == _$email)
+}
+
+query selectOrdersOfDistributorAndRetailer {
+	description:"Select all the orders from distributors and retailers based on status, traderId and role"
+  	statement:
+  		SELECT org.supplychain.network.Product 
+  			WHERE((status == 'DISTRIBUTOR_REQUEST_PENDING' OR status == 'RETAILER_REQUEST_PENDING') AND traderId == _$traderId AND role == 'FARMER')
+}
+
+query selectDemandOfDistributorAndRetailer {
+	description:"Select all the needs from distributors and retailers based on status and traderId"
+  	statement:
+  		SELECT org.supplychain.network.Product 
+  			WHERE(status == 'DISTRIBUTOR_NEED' OR status == 'RETAILER_NEED')
+}
+
+
+/** Querys for Distributor
+*/
+query selectdistributorAssets {
+  description: "Select all products owned by Distributor"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE ( role == 'DISTRIBUTOR' AND traderId == _$traderId AND (status == 'DISTRIBUTOR_REQUEST_APPROVED' OR status == 'RETAILER_REQUEST_REJECTED'))
+}
+
+
+query selectOrdersOfRetailer {
+  description: "Select all orders of retailer base on traderId, role and status"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE ( role == 'DISTRIBUTOR' AND traderId == _$traderId AND status == 'RETAILER_REQUEST_PENDING' )
+}
+
+
+query selectProductsForSaleByFarmer {
+  description: "Select all products for sale by farmer"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE (role == 'FARMER' AND (status == 'NA' OR status == 'RETAILER_REQUEST_REJECTED' OR status == 'DISTRIBUTOR_REQUEST_REJECTED'))
+}
+
+
+query selectDistributorOrderRequests {
+	description: "Select all products ordered by distributor"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE (role == 'FARMER' AND phoneNumber == _$phoneNumber AND (status == 'DISTRIBUTOR_REQUEST_PENDING' OR status == 'DISTRIBUTOR_REQUEST_REJECTED'))
+}
+
+
+query selectDemandOfRetailers {
+	description:"Select all the needs of retailers based on status "
+  	statement:
+  		SELECT org.supplychain.network.Product 
+  			WHERE(status == 'RETAILER_NEED')
+}
+
+query selectNeedofDistributor{
+   description:"Select all the needs of distributor based on status and traderId "
+   statement:
+  		SELECT org.supplychain.network.Product 
+  			WHERE(status == 'DISTRIBUTOR_NEED' AND traderId == _$traderId)
+}
+
+/** Querys for Retailer
+*/
+
+query selectRetailerAssets {
+  description: "Select all products owned by Retailer"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE ( role == 'RETAILER' AND traderId == _$traderId AND status == 'RETAILER_REQUEST_APPROVED' )
+}
+
+query selectProductsForSaleByDistributorAndFarmer{
+    description: "Select all products that are for sale by farmers and distributors."
+    statement:
+            SELECT org.supplychain.network.Product 
+  			WHERE ((status == 'NA' OR status == 'DISTRIBUTOR_REQUEST_APPROVED' OR status == 'DISTRIBUTOR_REQUEST_REJECTED') AND (role == 'FARMER' OR role == 'DISTRIBUTOR'))
+}
+
+query selectRetailerOrderRequests {
+	description: "Select all products ordered by retailer"
+  statement:
+      SELECT org.supplychain.network.Product 
+  			WHERE ((role == 'FARMER' OR role == 'DISTRIBUTOR') AND phoneNumber == _$phoneNumber AND (status == 'RETAILER_REQUEST_PENDING' OR status == 'RETAILER_REQUEST_REJECTED'))
+}
+
+query selectNeedofRetailer{
+   description:"Select all the needs of retailer based on status and traderId "
+   statement:
+  		SELECT org.supplychain.network.Product 
+  			WHERE(status == 'RETAILER_NEED' AND traderId == _$traderId)
+}
+
+/** Query for all transactions
+*/
+ query showProductAllHistorians{ 
+  description: "Select commodity all historians" 
+  statement: 
+    SELECT org.hyperledger.composer.system.HistorianRecord
+}

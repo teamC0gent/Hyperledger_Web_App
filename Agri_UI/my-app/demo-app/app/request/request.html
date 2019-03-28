@@ -1,0 +1,23 @@
+<div class="col-md-12">
+    <h3>My Requests</h3>
+    <div class="table-responsive" style="height: 400px">
+        <table class="table" ng-table ng-init="getRequests()">
+            <tr ng-repeat="request in requests">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td data-title="'Request Id'">{{request.pid}}</td>
+                <td data-title="'Request Name'">{{request.name}}</td>
+                <td data-title="'Quantity (in Kg)'">{{request.quantity}}</td>
+                <td data-title="'Price  (in Rs.)'">{{request.price}}</td>
+                <td data-title="'Owner Name'">{{request.firstName + ' ' + request.lastName.split('$')[0]}}</td>
+                <td data-title="'Role'">{{request.role}}</td>
+                <td data-title="'Contact'">{{request.phoneNumber}}</td>
+                <td data-title="'Status'">{{request.status}}</td>
+                <!--<td>
+                    <a href="" ng-click="addModal()"><i class="fa fa-pencil"></i></a>
+                    <a href="" style="margin-left:5px;"><i class="fa fa-trash"></i></a>
+                </td>
+            -->
+            </tr>
+        </table>
+    </div>
+</div>

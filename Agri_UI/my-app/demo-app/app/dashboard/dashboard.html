@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar" ng-class="{'active': !toggle}">
+
+    <ul class="list-unstyled">
+      <li ui-sref-active="active">
+        <a ui-sref="asset" ng-click="toggle = !toggle">My Assets</a>
+      </li>
+      <!-- not retailer  -->
+      <li ui-sref-active="active" ng-hide="userInfo.role == 'RETAILER'">
+        <a ui-sref="order" ng-click="toggle = !toggle">Orders</a>
+      </li>
+      <!-- not farmer  -->
+      <li ui-sref-active="active" ng-hide="userInfo.role == 'FARMER'">
+        <a ui-sref="product" ng-click="toggle = !toggle">Products Available</a>
+      </li>
+      <!-- not farmer  -->
+      <li ui-sref-active="active" ng-hide="userInfo.role == 'FARMER'">
+        <a ui-sref="request" ng-click="toggle = !toggle">My Requests</a>
+      </li>
+      <!-- not retailer  -->
+      <li ui-sref-active="active" ng-hide="userInfo.role == 'RETAILER'">
+        <a ui-sref="demand" ng-click="toggle = !toggle">Demands</a>
+      </li>
+      <!-- not farmer  -->
+      <li ui-sref-active="active" ng-hide="userInfo.role == 'FARMER'">
+        <a ui-sref="need" ng-click="toggle = !toggle">Needs</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="transaction" ng-click="toggle = !toggle">Transactions</a>
+      </li>
+      <li>
+        <a ng-click="toggle = !toggle; logout()">Logout</a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top" id="header">
+        <div class="navbar-header">
+          <button type="button" id="sidebarCollapse" ng-click="toggle = !toggle">
+            <i class="fa fa-bars" style="font-size:40px;"></i>
+          </button>
+        </div>
+        <div class="navbar-header m-l-20">
+          <img src="../../assets/images/app-logo.png" width="110px" height="50px" />
+        </div>
+        <div class="navbar-header m-l-20">
+          Agri Supply Chain
+        </div>
+        <div class="navbar-header navbar-right f-16" style="margin:20px; ">
+          Hi {{ userInfo.lastName }}
+        </div>
+      </nav>
+    </div>
+    <div id="dashboard-content" ui-view="dashboardItems"></div>
+  </div>

@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    <h3>Orders</h3>
+    <div class="table-responsive" style="height: 400px">
+        <table class="table" ng-table ng-init="getAllOrders()">
+            <tr ng-repeat="order in orders">
+                <td data-title="'Sno.'">{{$index+1}}</td>
+                <td data-title="'Product Id'">{{order.pid}}</td>
+                <td data-title="'Product Name'">{{order.name}}</td>
+                <td data-title="'Quantity (in Kg)'">{{order.quantity}}</td>
+                <td data-title="'Price (in Rs.)'">{{order.price}}</td>
+                <td data-title="'Name'">{{order.firstName + ' ' + order.lastName.split('$')[0]}}</td>
+                <td data-title="'Owner'">{{order.role}}</td>
+                <td data-title="'Contact'">{{order.phoneNumber}}</td>
+                <td>
+                    <button class="btn btn-xs btn-success" type="button" ng-click="acceptOrder($index)">Accept</button>
+                    <button class="btn btn-xs btn-danger" type="button" ng-click="rejectOrder($index)">Reject</button>
+                </td>
+                <!--<td>
+                    <a href="" ng-click="addModal()"><i class="fa fa-pencil"></i></a>
+                    <a href="" style="margin-left:5px;"><i class="fa fa-trash"></i></a>
+                </td>
+            -->
+            </tr>
+        </table>
+    </div>
+</div>

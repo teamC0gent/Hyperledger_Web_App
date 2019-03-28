@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="appname">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Agri Supply Chain</title>
+  <!-- Bootstrap -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  
+    <link href="assets/css/addon.css" rel="stylesheet" />
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!--Angular js-->
+  <script type="text/javascript" src="bower_components/angular.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-animate.min.js"></script>
+  <script src="https://code.angularjs.org/1.5.5/angular-cookies.js"></script>
+  <!-- uiRouter -->
+  <script type="text/javascript" src="bower_components/angular-ui-router.min.js"></script>
+  <!-- ui-bootstrap -->
+  <script type="text/javascript" src="bower_components/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <!-- ngTable -->
+  <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.min.css">
+  <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
+  <!-- ngToast -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/3.0.0/toaster.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/3.0.0/toaster.min.js"></script>
+
+  <!--  <script src="bower_components/angular-image-dimensions/dist/angular-image-dimensions.js"></script> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div ui-view="content"></div>
+  <toaster-container></toaster-container>
+  <script type="text/javascript" src="config.js"></script>
+
+  
+  <!-- Plugins -->
+  <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+  
+  
+  <script src="app/appCtrl.js"></script>
+  <script type="text/javascript" src="httpService.js"></script>
+  <script type="text/javascript" src="directives.js"></script>
+
+  <!-- controllers -->
+  <script type="text/javascript" src="app/login/login-controller.js"></script>
+  <script type="text/javascript" src="app/register/register-controller.js"></script>
+  <script type="text/javascript" src="app/dashboard/dashboard-controller.js"></script>
+  <script type="text/javascript" src="app/product/product-controller.js"></script>
+  <script type="text/javascript" src="app/asset/asset-controller.js"></script>
+  <script type="text/javascript" src="app/asset/add-asset-controller.js"></script>
+  <script type="text/javascript" src="app/order/order-controller.js"></script>
+  <script type="text/javascript" src="app/request/request-controller.js"></script>
+  <script type="text/javascript" src="app/need/need-controller.js"></script>
+  <script type="text/javascript" src="app/need/add-need-controller.js"></script>
+  <script type="text/javascript" src="app/demand/demand-controller.js"></script>
+  <script type="text/javascript" src="app/transaction/transaction-controller.js"></script>
+</body>
+
+</html>

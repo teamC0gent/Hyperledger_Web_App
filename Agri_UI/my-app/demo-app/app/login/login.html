@@ -1,0 +1,40 @@
+<div class="container">
+  <nav class="navbar navbar-default navbar-fixed-top" id="header">
+    <div class="navbar-header m-l-20">
+      <img src="../../assets/images/app-logo.png" width="110px" height="50px" />
+    </div>
+    <div class="navbar-header m-l-20">
+      Agri Supply Chain
+    </div>
+  </nav>
+  <div class="row" id="dashboard-content">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="login" ng-hide="forgotContainer">
+        <h2 class="text-center bold-text">Sign In</h2>
+        <div class="row">
+          <form div class="col-sm-8 col-sm-offset-2 p-t-20" name="loginForm" ng-submit="loginRequest()">
+            <div class="form-group">
+              <input type="email" name="email" ng-model="userData.username" class="form-control height-42"  placeholder="Email Id" required="">
+            </div>
+            <div class="form-group">
+              <select class="form-control" id="role" ng-model="userData.role" name="role" required>
+                <option value="FARMER">Farmer</option>
+                <option value="RETAILER">Retailer</option>
+                <option value="DISTRIBUTOR">Distributor</option>
+              </select>
+            </div>
+            <div class="form-group p-b-20">
+              <input type="password" name="password" ng-model="userData.password" class="form-control height-42"  placeholder="Password" required="">
+              
+              <a href="#register" class="pull-right f-12 gray-text m-t-5" > New User? Register Here</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" >Login </button>
+            <br/><br/>
+          </form>
+
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
